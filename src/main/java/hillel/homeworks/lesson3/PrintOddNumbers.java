@@ -1,4 +1,4 @@
-package hillel.homeworks.lesson1;
+package hillel.homeworks.lesson3;
 
 public class PrintOddNumbers {
     public static void main(String[] args) {

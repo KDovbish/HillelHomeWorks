@@ -8,14 +8,27 @@ public class MaxMinArrElementChange {
 
         int[] arr = {101, -5, 0, 6, 8, -23, 100};
 
-        int minIndex=getMinElementIndex(arr);
-        int minValue=arr[minIndex];
-        int maxIndex=getMaxElementIndex(arr);
+        //  Определение индекса минимального и максимального элемента массива
+        int minIndex = 0; int minElement = arr[minIndex];
+        int maxIndex = 0; int maxElement=arr[maxIndex];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < minElement) {
+                minElement = arr[i];
+                minIndex = i;
+            }
+            if (arr[i] > maxElement) {
+                maxElement = arr[i];
+                maxIndex = i;
+            }
+        }
 
         System.out.println("Исходный массив: \n" + Arrays.toString(arr));
         System.out.println("Индекс наибольшего элемента: " + maxIndex);
         System.out.println("Индекс наименьшего элемента: " + minIndex);
 
+        //  Необходимо сохранить перед заменой во временной переменной либо минмальный либо максимальный элемент
+        int minValue=arr[minIndex];
+        //  Change
         arr[minIndex]=arr[maxIndex];
         arr[maxIndex]=minValue;
 
@@ -56,6 +69,4 @@ public class MaxMinArrElementChange {
         }
         return maxIndex;
     }
-
-
 }

@@ -1,3 +1,6 @@
+/*
+ *  Версия 1
+ */
 package hillel.homeworks.lesson5;
 
 public class Main {

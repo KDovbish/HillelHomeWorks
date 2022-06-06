@@ -1,9 +1,6 @@
 package hillel.homeworks.lesson5;
 
-public class Student {
-
-    //  Генерация уникального кода для каждого экземпляра класса
-    private static int genId = 0;
+class Student {
 
     private int id;                      //  Уникальный номер студента в списке
     private String lastName = "";        //  Фамилия
@@ -17,29 +14,18 @@ public class Student {
     private String group = "";           //  Группа
 
 
-    Student(String lastName, String firstName) {
-        setId(++genId);
+    Student(int id, String lastName, String firstName) {
+        setId(id);
         setLastName(lastName);
         setFirstName(firstName);
     }
 
-    Student(String lastName, String firstName, String middleName,
-                int birthYear, String address, String telephone) {
-        this(lastName, firstName);
+    Student(int id, String lastName, String firstName, String middleName) {
+        this(id, lastName, firstName);
         setMiddleName(middleName);
-        setBirthYear(birthYear);
-        setAddress(address);
-        setTelephone(telephone);
     }
 
-    Student(String lastName, String firstName,
-                String middleName, int birthYear, String address, String telephone,
-                String faculty, int classNumber, String group) {
-        this(lastName, firstName, middleName, birthYear, address, telephone);
-        setFaculty(faculty);
-        setClassNumber(classNumber);
-        setGroup(group);
-    }
+    public int getId() { return id; }
 
     private void setId(int id) {
         this.id = id;

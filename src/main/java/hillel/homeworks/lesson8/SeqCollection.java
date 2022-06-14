@@ -140,7 +140,7 @@ public class SeqCollection implements Collection{
 
     /**
      * Проверка на эквивалентность с другой коллекцией
-      * @param coll Ссылка на другую коллекцию
+     * @param coll Ссылка на другую коллекцию
      * @return Отдает true/false в зависимости о того эквивалентны коллекции или нет
      */
     @Override

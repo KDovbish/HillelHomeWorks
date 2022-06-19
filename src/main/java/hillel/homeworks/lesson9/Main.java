@@ -17,8 +17,6 @@ public class Main {
             System.out.println(i + ": " + list1.get(i));
         }
     }
-
-
 }
 
 

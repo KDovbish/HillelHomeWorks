@@ -1,6 +1,8 @@
 package hillel.homeworks.lesson9;
 
-
+/**
+ * Реализация двустороннего связного списка
+ */
 public class LinkedList9 implements Collection{
 
     //  Сущность, описывающая один элемент данных коллекции
@@ -9,18 +11,6 @@ public class LinkedList9 implements Collection{
         private Entry next;
         Entry(String data) {
             this.data = data;
-        }
-
-        @Override
-        public String toString() {
-
-            return "data='" + data + "', next='" + ((next==null)?"null":next.data) + "'";
-
-            /*
-            return "data='" + data + "\'" +
-                    ", next='" +  next==null?"null": next.data  + "\'";
-
-             */
         }
     }
 
@@ -51,12 +41,21 @@ public class LinkedList9 implements Collection{
         return true;
     }
 
+    /**
+     * Добавить в хвост текущей коллекции новую коллекцию
+     * @param strColl
+     * @return
+     */
     @Override
     public boolean addAll(Collection strColl) {
-        for (int i = 0; i <= strColl.size() - 1; i ++) {
-            add(strColl.get(i));
+        if (strColl != null) {
+            for (int i = 0; i <= strColl.size() - 1; i++) {
+                add(strColl.get(i));
+            }
+            return true;
+        } else {
+            return false;
         }
-        return true;
     }
 
     /**
@@ -233,17 +232,5 @@ public class LinkedList9 implements Collection{
             return null;
         }
     }
-
-
-    public void debug() {
-        System.out.println("\nРазмер списка: " + size());
-        System.out.println("first: " + first);
-        System.out.println("last: " + last);
-        System.out.println("\nКоллекция: ");
-        for (int i = 0; i <=  size() - 1; i++) {
-            System.out.println(i + ": " + getEntryByIndex(i));
-        }
-    }
-
 
 }

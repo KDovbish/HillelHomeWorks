@@ -9,19 +9,13 @@ public class Main {
         LinkedList9 list2 = DataGenerator2.getList();
 
         list1.addAll(list2);
-
-        list1.clear();
-
-        //System.out.println("Результат поиска: " + list1.contains("0 элемен2т"));
-
-        //System.out.println("Результат удаления: " + list.delete("2 элемент"));
-
-        //System.out.println("Результат удаления: " + list.delete(2));
-        //System.out.println("Получить элемент по индексу: " + list.get(5));
-
-
-        list1.debug();
-
+        list1.add("Последний");
+        System.out.println("Результат удаления: " + list1.delete(2));
+        System.out.println("Поиск, Index=3: " + list1.get(3));
+        System.out.println("Размер коллекции: " + list1.size());
+        for (int i = 0; i <= list1.size() - 1; i++) {
+            System.out.println(i + ": " + list1.get(i));
+        }
     }
 
 

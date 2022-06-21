@@ -24,7 +24,7 @@ public class SeqCollection implements Collection{
     /**
      * Создать пустую коллекцию
      */
-    SeqCollection() {
+    public SeqCollection() {
         array = new String[ARRAY_BLOCK_SIZE];
         newElementIndex = 0;
     }
@@ -34,7 +34,7 @@ public class SeqCollection implements Collection{
      * Значения у всех элементов созданной коллекции устанавливается по умолчанию null
      * @param size Резмер коллекции
      */
-    SeqCollection(int size) {
+    public SeqCollection(int size) {
         if ( size > 0 ) {
             array =  new String[size];
             newElementIndex = size;
@@ -306,7 +306,7 @@ public class SeqCollection implements Collection{
      * @param index Номер индекса
      * @return Успешным ли было удаление? true/false
      */
-    private boolean deleteDataByIndex(int index) {
+    protected boolean deleteDataByIndex(int index) {
         //  индекс удаляемого элемента находиться за пределами коллекции?
         if (!isWithinCollection(index)) {
             return false;

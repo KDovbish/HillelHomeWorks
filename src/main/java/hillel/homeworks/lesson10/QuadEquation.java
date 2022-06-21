@@ -39,7 +39,7 @@ public class QuadEquation {
 
     /**
      * Получить дискриминант
-     * @return
+     * @return Дискриминант
      */
     public double getDiscriminant() {
         return discriminant;

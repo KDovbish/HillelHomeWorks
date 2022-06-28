@@ -58,6 +58,7 @@ class SeqCollectionTest {
     void contains() {
         coll.add("000"); coll.add("111"); coll.add("222");
         assertTrue(coll.contains("222"));
+        assertFalse(coll.contains(null));
     }
 
     @Test

@@ -25,9 +25,9 @@ public class Service {
         для данного списка.
         Опять же рекомендуюется использование toCollection() класса Collectors.
          */
-        //return coll.stream()
-        //        .map(e -> new Pair(e, e.toUpperCase()))
-        //        .collect(Collectors.toList());
+        return coll.stream()
+                .map(e -> new Pair(e, e.toUpperCase()))
+                .collect(Collectors.toList());
 
 
         /*
@@ -37,8 +37,8 @@ public class Service {
         На вход метода toCollection() подается ссылка на метод без параметров, возвращающий пустую коллекцию заданного типа,
         которая будет наполняться реализацией интерфейса Collector.
          */
-        return coll.stream()
-                .map(e -> new Pair(e, e.toUpperCase()))
-                .collect(Collectors.toCollection( ArrayList<Pair>::new ));
+        //return coll.stream()
+        //        .map(e -> new Pair(e, e.toUpperCase()))
+        //        .collect(Collectors.toCollection( ArrayList<Pair>::new ));
     }
 }

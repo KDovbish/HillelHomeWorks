@@ -5,10 +5,16 @@ import java.util.List;
 
 /**
  * Класс, реализующий методы для вывода на консоль строки символов в псевдографике
+ *
  */
 public class PsevdoGrString {
 
     private List<String[]> matrixList;
+
+
+    PsevdoGrString(){
+
+    }
 
 
     /**
@@ -33,24 +39,23 @@ public class PsevdoGrString {
     /**
      * Проверка массива строк на наличие только строковых представлений цифр
      * @param a массив строк
-     * @return массив строк содержит только строковые представления цифр
+     * @return true/false
      */
     boolean verify(String[] a) {
-        if (Arrays.stream(a).allMatch(e -> e.length() == 1)) {
-            try{
-                for (String e: a) Integer.parseInt(e);
-            } catch (NumberFormatException e) {
-                return false;
-            }
+        if (Arrays.stream(a).anyMatch(e -> e.length() != 1)) return false;
+        try{
+            for (String e: a) Integer.parseInt(e);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
-        return true;
     }
 
     /**
      * Отдать список, содержащий строки заданного индекса по матрицам всех символов
      * которые требуется вывести на экран
-     * @param index
-     * @return
+     * @param index Номер строки
+     * @return Список строк
      */
     List<String> getMatrixLineList(int index) {
         return matrixList.stream()

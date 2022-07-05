@@ -6,7 +6,8 @@ class PsevdoGrStringTest {
 
     @org.junit.jupiter.api.Test
     void verify() {
-        String[] args = {"0", "1", "2"};
-        //assertTrue();
+        String[] args = {"0", "1.2", "2", "3"};
+        PsevdoGrString s = new PsevdoGrString();
+        assertTrue(s.verify(args));
     }
 }

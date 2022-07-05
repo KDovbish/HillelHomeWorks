@@ -1,13 +1,12 @@
 package hillel.homeworks.lesson14;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * Класс, реализующий методы для вывода на консоль строки символов в псевдографике
  */
-public class ConsoleOutputLine {
+public class PsevdoGrString {
 
     private List<String[]> matrixList;
 
@@ -16,14 +15,14 @@ public class ConsoleOutputLine {
      * Конструктор
      * @param symbolList массив строк
      */
-    ConsoleOutputLine(List<String> symbolList) {
+    PsevdoGrString(List<String> symbolList) {
         matrixList = symbolList.stream()
                 .map(e -> e.charAt(0))
                 .map(e -> SymbolTable.getSymbolMatrix(e))
                 .toList();
     }
 
-    ConsoleOutputLine(String[] a) {
+    PsevdoGrString(String[] a) {
         if (verify(a)) {
 
 
@@ -37,15 +36,14 @@ public class ConsoleOutputLine {
      * @return массив строк содержит только строковые представления цифр
      */
     boolean verify(String[] a) {
-        try{
-            for (String s: a) {
-                if (s.length() == 1) Integer.parseInt(s)
-                        else return false;
+        if (Arrays.stream(a).allMatch(e -> e.length() == 1)) {
+            try{
+                for (String e: a) Integer.parseInt(e);
+            } catch (NumberFormatException e) {
+                return false;
             }
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
         }
+        return true;
     }
 
     /**

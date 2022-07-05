@@ -1,9 +1,7 @@
 package hillel.homeworks.lesson14;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +13,7 @@ public class Main {
         }
         symbList.add(args[args.length - 1]);
 
-        ConsoleOutputLine line = new ConsoleOutputLine(symbList);
+        PsevdoGrString line = new PsevdoGrString(symbList);
 
         for (int row = 0; row <= 4; row++) {
             line.getMatrixLineList(row).stream().forEach(System.out::print);

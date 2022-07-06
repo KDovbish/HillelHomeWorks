@@ -6,83 +6,23 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<String> symbList = new ArrayList<>();
-        for (int i = 0; i <= args.length - 2; i ++) {
-            symbList.add(args[i]);
-            symbList.add(" ");
-        }
-        symbList.add(args[args.length - 1]);
+        //  Создается объект, отображающий(мэпинг) массив строковых цифр в матрицы соответствующих псевдографических символов
+        PsevdoGrString line = new PsevdoGrString();
+        //  Проверяется допустимость строк с цифрами, передаваемая в объект
+        if (line.verifyInput(args)) {
 
-        PsevdoGrString line = new PsevdoGrString(symbList);
+            //  Строки с цифрами передаются в объект
+            line.add(args);
 
-        for (int row = 0; row <= 4; row++) {
-            line.getMatrixLineList(row).stream().forEach(System.out::print);
-            System.out.println();
-        }
-
-
-
-
-
-
-        /*
-        List<String[]> matrixList = symbList.stream()
-                .map(e -> e.charAt(0))
-                .map(e -> SymbolTable.getSymbolMatrix(e))
-                .toList();
-
-
-        Stream<String[]> matrixStream = matrixList.stream();
-        for (int row = 0; row <= 4; row++){
-            matrixStream
-                    .map(e -> e[row])
-                    .toList();
-        }
-
-
-
-
-        List<String> rowList = matrixList.stream()
-                .map((e) -> e[0])
-                .toList();
-         */
-
-
-
-
-
-
-
-        /*
-        for (int row = 0; row <= 4; row++) {
-            for (int i = 0; i <= matrixList.size() - 1; i++) {
-                System.out.print(matrixList.get(i)[row]);
+            //  Из каждой матрицы берется очередная строка и выводиться на консоль
+            for (int row = 0; row <= SymbolTable.SYMBOL_HEIGHT - 1; row++) {
+                line.getMatrixLineList(row).stream().forEach(System.out::print);
+                System.out.println();
             }
-            System.out.println();
+
+        } else {
+            System.out.println("Ошибка в параметрах модуля!");
         }
-         */
-
-
-
-        /*
-        Stream<String[]> stream = matrixList.stream();
-        for (int i = 0; i <= 4; i++) {
-            stream.map(e -> e[i]).forEach(System.out::print);
-        }
-         */
-
-
-
-
-        /*
-        matrixList.stream()
-                .map(e -> Arrays.toString(e))
-                .forEach(System.out::println);
-         */
-
-
-
-
 
     }
 }

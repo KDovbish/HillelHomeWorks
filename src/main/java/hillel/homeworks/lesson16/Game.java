@@ -2,18 +2,18 @@ package hillel.homeworks.lesson16;
 
 import java.util.Scanner;
 
-class Game {
+public class Game {
 
     //  Выбор игрока
-    static final int STONE = 1;
-    static final int SCISSORS = 2;
-    static final int PAPER = 3;
-    static final int BREAK = 0;
+    public static final int STONE = 1;
+    public static final int SCISSORS = 2;
+    public static final int PAPER = 3;
+    public static final int BREAK = 0;
 
     //  Результат матча
-    static final int DRAW = 1;
-    static final int PLAYER1 = 2;
-    static final int PLAYER2 = 3;
+    public static final int DRAW = 1;
+    public static final int PLAYER1 = 2;
+    public static final int PLAYER2 = 3;
 
     //  Матрица для вычисления результатов матча
     private static int[][] win = {
@@ -27,7 +27,7 @@ class Game {
      * @param choice код выбора
      * @return название выбора
      */
-    static String translateChoice(int choice) {
+    public static String translateChoice(int choice) {
         switch (choice) {
             case STONE: return "STONE";
             case SCISSORS: return "SCISSORS";
@@ -42,7 +42,7 @@ class Game {
      * @param player2Choice Выбор второго игрока
      * @return Ничья(DRAW)/Победил игрок1(PLAYER1)/Победил игрок 2(PLAYER2)
      */
-    static int getGameResult(int player1Choice, int player2Choice) {
+    public static int getGameResult(int player1Choice, int player2Choice) {
         return win[player1Choice-1][player2Choice-1];
     }
 
@@ -50,7 +50,7 @@ class Game {
      * Генерация случайного выбора игрока
      * @return 1..3(STONE, SCISSORS, PAPER)
      */
-    static int generateRandomResult() {
+    public static int generateRandomResult() {
         return 1 + (int) ( Math.random() * 3 );
     }
 
@@ -58,7 +58,7 @@ class Game {
      * Запросить выбор игрока
      * @return 1(Камень)/2(Ножницы)/3(Бумага)
      */
-    static int askPlayer() {
+    public static int askPlayer() {
         Scanner scanner = new Scanner(System.in);
         for(;;) {
             System.out.println();

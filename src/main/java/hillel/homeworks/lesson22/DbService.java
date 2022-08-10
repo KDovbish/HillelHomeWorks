@@ -70,7 +70,7 @@ public class DbService {
      */
     ResultSet select(String query) {
         try {
-            if (conn != null) return conn.createStatement().executeQuery(query);
+            if (isOpen()) return conn.createStatement().executeQuery(query);
                 else return null;
         } catch (SQLException e) {
             return null;
